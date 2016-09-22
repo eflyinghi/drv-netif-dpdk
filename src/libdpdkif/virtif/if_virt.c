@@ -432,9 +432,9 @@ VIF_DELIVERMBUF(struct virtif_sc *sc, struct mbuf *m0)
 
 		n = m->m_nextpkt;
 		if (passup) {
-			m->m_pkthdr.rcvif = ifp;
+			m_set_rcvif(m,ifp);
 			bpf_mtap(ifp, m);
-			ifp->if_input(ifp, m);
+			ifp->_if_input(ifp, m);
 		} else {
 			m_freem(m);
 		}
