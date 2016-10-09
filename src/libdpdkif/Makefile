@@ -6,6 +6,7 @@ RUMPTOP= ${TOPRUMP}
 
 RUMPCOMP_USER_SRCS=	dpdkif_user.c
 RUMPCOMP_USER_CPPFLAGS+= -I${RTE_SDK}/${RTE_TARGET}/include
+RUMPCOMP_USER_CPPFLAGS+= -march=native
 
 .include "${RUMPTOP}/Makefile.rump"
 .include <bsd.lib.mk>
